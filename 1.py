@@ -119,7 +119,7 @@ for i in range(max):
         if i>len(list1[j])-1:
             file2.write ('                             \t')
             continue
-        file2.write('%3s %3s %3s %s %f\t'%(list1[j][i][0],list1[j][i][1],list1[j][i][2],\
+        file2.write('%3s %3s %3s %s %3.3f\t'%(list1[j][i][0],list1[j][i][1],list1[j][i][2],\
                                            list1[j][i][3],round((float(list1[j][i][4])/100-0.005),4)))
         #print(list1[j][i][3],list1[j][i][4])
 
