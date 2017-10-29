@@ -34,7 +34,16 @@ def func (list1,J,Ka,Kc,str1):
 
 #########################################################
 
-f=open('ini','r').readlines()
+import os
+
+ini_path = os.path.abspath('ini')
+res_path = os.path.abspath('res')
+
+if os.path.exists(ini_path)==False:
+    ini_path = os.path.abspath('Serias_for_Origin/ini')
+    res_path = os.path.abspath('Serias_for_Origin/res')
+
+f=open(ini_path,'r').readlines()
 
 for i in range(len(f)):
     f[i]=f[i].replace('-',' ')
@@ -46,12 +55,12 @@ for i in range(len(f)):
     f[i]=f[i].replace('s',' ')
     f[i]=f[i].replace('p',' ')
 
-with open('ini','w') as F:
+with open(ini_path,'w') as F:
     F.writelines(f)
 
 F.close()
 
-file=open('ini','r')
+file=open(ini_path,'r')
 list1=[]
 
 while(True):
@@ -95,7 +104,7 @@ while(True):
             list1=list0
         else:
             continue
-file2=open('res','w')
+file2=open(res_path,'w')
 
 max=0
 for i in range(len(list1)):
