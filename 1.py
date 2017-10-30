@@ -1,5 +1,5 @@
 ############################################
-def func (list1,J,Ka,Kc,str1):
+def func_check (list1,J,Ka,Kc,str1):
     if len(list1)==0:
         list1.append([str1])
         return 0
@@ -63,6 +63,8 @@ F.close()
 file=open(ini_path,'r')
 list1=[]
 
+count=0
+
 while(True):
     str1=file.readline()
     if len(str1)==0:
@@ -71,6 +73,7 @@ while(True):
     if str1.find('Sea',0,len(str1))!=-1:
         str1=str1.split()
         _,J0,Ka0,Kc0,*_=str1
+        count++
         continue
     str1=str1[1:78]
     str1=str1.split()
@@ -78,7 +81,7 @@ while(True):
     if len(str1)==6:
         J,Ka,Kc,Tr,I,E=str1
 
-        list0=func(list1,J,Ka,Kc,str1)
+        list0=func_check(list1,J,Ka,Kc,str1)
         if list0!=0:
             list1=list0
         else:
@@ -86,20 +89,20 @@ while(True):
     if len(str1)==12:
         J,Ka,Kc,Tr,I,E,*_=str1
         str2=[J,Ka,Kc,Tr,I,E]
-        list0=func(list1,J,Ka,Kc,str2)
+        list0=func_check(list1,J,Ka,Kc,str2)
         if list0!=0:
             list1=list0
         else:
             *_,J,Ka,Kc,Tr,I,E=str1
             str2=[J,Ka,Kc,Tr,I,E]
-            list0=func(list1,J,Ka,Kc,str2)
+            list0=func_check(list1,J,Ka,Kc,str2)
             if list0!=0:
                 list1=list0
             else:
                 continue
         *_,J,Ka,Kc,Tr,I,E=str1
         str2=[J,Ka,Kc,Tr,I,E]
-        list0=func(list1,J,Ka,Kc,str2)
+        list0=func_check(list1,J,Ka,Kc,str2)
         if list0!=0:
             list1=list0
         else:
