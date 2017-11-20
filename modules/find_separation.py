@@ -44,5 +44,6 @@ def Find_Separation (ini_path):
 
     F.close()
 
-    print (separate)
+    if separate == 0 :
+        separate = 1000
     return separate
